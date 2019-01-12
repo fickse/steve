@@ -54,4 +54,13 @@ fromclip <- function(...){
   read.table('clipboard', sep = '\t', ...)
 }
 
+#' Write raster to png
+#' @param r raster
+#' @param fname filename
+#' @param ... other args to rgdal::writeGDAL
+raster2png <- function(r,fname, ...){
+ rgdal::writeGDAL(as(ig, "SpatialGridDataFrame"), 
+ fname,
+ drivername = "PNG", type = "Byte", ...)
+}
 
